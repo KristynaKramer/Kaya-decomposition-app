@@ -1,25 +1,10 @@
-# 📦 Streamlit App Starter Kit 
-```
-⬆️ (Replace above with your app's name)
-```
+# Kaya decomposition app
 
-Description of the app ...
+This applet creates Kaya decomposition for a country that the user selects from the list.
 
-## Demo App
-
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://app-starter-kit.streamlit.app/)
-
-## GitHub Codespaces
-
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/streamlit/app-starter-kit?quickstart=1)
-
-## Section Heading
-
-This is filler text, please replace this with text for this section.
-
-## Further Reading
-
-This is filler text, please replace this with a explanatory text about further relevant resources for this repo
-- Resource 1
-- Resource 2
-- Resource 3
+## Data sources:
+* [CO2 fossil emissions](https://edgar.jrc.ec.europa.eu/dataset_ghg2025)
+* [Population](https://data.worldbank.org/indicator/SP.POP.TOTL)
+* [GDP per capita annual growth in %](https://data.worldbank.org/indicator/NY.GDP.PCAP.KD.ZG)
+* [Energy use per $1,000 GDP](https://data.worldbank.org/indicator/EG.USE.COMM.GD.PP.KD)
+* [Carbon intensity of energy](https://ourworldindata.org/grapher/co2-per-unit-energy.csv?v=1&csvType=full&useColumnShortNames=true)
