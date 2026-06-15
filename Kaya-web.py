@@ -1,7 +1,35 @@
 import pandas as pd
+import matplotlib
 import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
 import streamlit as st # for web applet
+
+# Change font size across the applet
+st.markdown("""
+    <style>
+    html, body, [class*="css"] {
+        font-size: 18px;
+    }
+    label, .stSelectbox label, [data-testid="stWidgetLabel"] {
+        font-size: 22px !important;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
+# Change font size for plots
+SMALL_SIZE = 12
+MEDIUM_SIZE = 14
+BIGGER_SIZE = 16
+
+plt.rcParams.update({'font.size': BIGGER_SIZE})
+
+#plt.rc('font', size=SMALL_SIZE)          # controls default text sizes
+#plt.rc('axes', titlesize=SMALL_SIZE)     # fontsize of the axes title
+#plt.rc('axes', labelsize=MEDIUM_SIZE)    # fontsize of the x and y labels
+plt.rc('xtick', labelsize=MEDIUM_SIZE)    # fontsize of the tick labels
+plt.rc('ytick', labelsize=MEDIUM_SIZE)    # fontsize of the tick labels
+plt.rc('legend', fontsize=SMALL_SIZE)    # legend fontsize
+#plt.rc('figure', titlesize=BIGGER_SIZE)  # fontsize of the figure title
 
 
 #---------------------------------------------------
@@ -102,7 +130,8 @@ def load_data():
             'Low-income countries', 
             'Lower-middle-income countries', 
             'Upper-middle-income countries',  
-            'World'
+            'World',
+            'Kosovo'
             ])].index
         )
     co2_energy_long = co2_energy_long.astype({'year' : 'str'}) 
@@ -194,5 +223,6 @@ countries = co2_energy_long['Country'].unique().tolist()
 cc = co2_energy_long[['Country', 'Country Code']].drop_duplicates().to_records(index=False)
 country_to_code = {country: code for (country, code) in cc}
 
-selected = st.selectbox("Select a country", countries, index=countries.index('Italy'))
+#st.markdown("<p style='font-size:22px;'>Select a country</p>", unsafe_allow_html=True)
+selected = st.selectbox(label='Select a country', options=countries, index=countries.index('Italy'))
 kayaplot(all_countries, selected)
